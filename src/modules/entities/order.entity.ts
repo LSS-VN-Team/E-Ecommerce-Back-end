@@ -1,7 +1,8 @@
 import { Exclude } from 'class-transformer';
+import { BaseEntity } from 'libs/core/base/base-entity.entity';
 import { Column, Entity } from 'typeorm';
 @Entity()
-class OrderEntity {
+class OrderEntity extends BaseEntity {
   @Column({
     name: 'idUser',
     nullable: false,

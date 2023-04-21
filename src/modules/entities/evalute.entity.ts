@@ -1,8 +1,9 @@
 import { Exclude } from 'class-transformer';
+import { BaseEntity } from 'libs/core/base/base-entity.entity';
 import { Column, Entity } from 'typeorm';
 
 @Entity()
-class EvaluteEntity {
+class EvaluteEntity extends BaseEntity {
   @Column({
     name: 'idUser',
     nullable: false,
@@ -34,22 +35,5 @@ class EvaluteEntity {
   })
   @Exclude()
   oneToTen: string;
-
-  @Column({
-    name: 'createdAt',
-    nullable: false,
-    default: () => 'NOW()',
-    type: 'timestamptz',
-  })
-  @Exclude()
-  createdAt: string;
-
-  @Column({
-    name: 'undatedAt',
-    nullable: false,
-    type: 'timestamptz',
-  })
-  @Exclude()
-  undatedAt: string;
 }
 export default EvaluteEntity;

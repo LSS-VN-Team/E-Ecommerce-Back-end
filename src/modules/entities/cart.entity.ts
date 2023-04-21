@@ -1,9 +1,10 @@
 // import { fail } from 'assert';
 import { Exclude, Expose } from 'class-transformer';
+import { BaseEntity } from 'libs/core/base/base-entity.entity';
 import { Column, Entity } from 'typeorm';
 
 @Entity()
-class CartEntity {
+class CartEntity extends BaseEntity {
   @Column({
     name: 'idUser',
     nullable: false,
@@ -23,7 +24,7 @@ class CartEntity {
   @Column({
     name: 'price',
     nullable: false,
-    type: 'number',
+    type: 'float',
   })
   @Expose()
   price: number;
@@ -31,17 +32,17 @@ class CartEntity {
   @Column({
     name: 'amount',
     nullable: false,
-    type: 'number',
+    type: 'float',
   })
   @Expose()
   amount: number;
 
   @Column({
-    name: 'totol',
+    name: 'total',
     nullable: false,
-    type: 'number',
+    type: 'float',
   })
   @Expose()
-  totol: number;
+  total: number;
 }
 export default CartEntity;
