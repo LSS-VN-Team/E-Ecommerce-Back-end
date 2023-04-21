@@ -9,28 +9,24 @@ import StatisticsOfDayEntity from './statisticsOfDay.entity';
 class StatisticsForMonthEntity extends BaseEntity {
   @Column({
     type: 'simple-array',
-    
   })
   @Expose()
   public statisticsOfDayList: StatisticsOfDayEntity[];
 
   @Column({
     type: 'simple-array',
-    
   })
   @Expose()
   public productStatistcsList: object[];
 
   @Column({
-    nullable: false, 
-    type:'float'
+    nullable: false,
+    type: 'float',
   })
   @Expose()
   @IsNumber()
   @Min(0)
   public total: number;
-
-  
 }
 
 export default StatisticsForMonthEntity;

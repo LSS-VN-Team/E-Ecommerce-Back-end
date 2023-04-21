@@ -7,15 +7,15 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 class ProductTypeEntity extends BaseEntity {
   @Column({
-    nullable: false, 
-    type:'text'})
+    nullable: false,
+    type: 'text',
+  })
   @Expose()
   public nameType: string;
 
   @Column('simple-array')
   @Expose()
   public productList: string[];
-
 }
 
 export default ProductTypeEntity;

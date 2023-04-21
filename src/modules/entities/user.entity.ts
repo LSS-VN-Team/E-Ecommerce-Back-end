@@ -7,34 +7,36 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 class UserEntity extends BaseEntity {
   @Column({
-    nullable: false, 
-    type:'text'})
+    nullable: false,
+    type: 'text',
+  })
   @Expose()
   public firstName: string;
 
   @Column({
-    nullable: false, 
-    type:'text'
+    nullable: false,
+    type: 'text',
   })
   @Expose()
   public lastName: string;
 
   @Column({
-    unique: true, 
-    nullable: false, 
+    unique: true,
+    nullable: false,
+    type:'text'
   })
   @IsEmail()
   @Expose()
   public email: string;
 
   @Column({
-    nullable: false, 
-    type:'text'
+    nullable: false,
+    type: 'text',
   })
   @Expose()
   public password: string;
 
-  @Column({nullable: false, default: false})
+  @Column({ nullable: false, default: false })
   @Expose()
   public admin: boolean;
 

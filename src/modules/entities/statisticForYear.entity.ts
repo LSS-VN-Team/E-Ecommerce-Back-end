@@ -10,28 +10,24 @@ import StatisticsForMonthEntity from './statisticsForMonth.entity';
 class StatisticsForYearEntity extends BaseEntity {
   @Column({
     type: 'simple-array',
-    
   })
   @Expose()
   public statisticsForMonthList: StatisticsForMonthEntity[];
 
   @Column({
     type: 'simple-array',
-    
   })
   @Expose()
   public productStatistcsList: object[];
 
   @Column({
-    nullable: false, 
-    type:'float'
+    nullable: false,
+    type: 'float',
   })
   @Expose()
   @IsNumber()
   @Min(0)
   public total: number;
-
-  
 }
 
 export default StatisticsForYearEntity;

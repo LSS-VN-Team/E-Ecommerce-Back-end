@@ -8,28 +8,24 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 class StatisticsOfDayEntity extends BaseEntity {
   @Column({
     type: 'simple-array',
-    
   })
   @Expose()
   public orderList: string[];
 
   @Column({
     type: 'simple-array',
-    
   })
   @Expose()
   public productStatistcsList: object[];
 
   @Column({
-    nullable: false, 
-    type:'float'
+    nullable: false,
+    type: 'float',
   })
   @Expose()
   @IsNumber()
   @Min(0)
   public total: number;
-
-  
 }
 
 export default StatisticsOfDayEntity;

@@ -2,41 +2,50 @@ import { Expose } from 'class-transformer';
 import { IsEmail, IsNumber, Max, Min } from 'class-validator';
 import { BaseEntity } from 'libs/core/base/base-entity.entity';
 import { text } from 'stream/consumers';
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import ProductTypeEntity from './productType.entity';
 
 @Entity()
 class ProductEntity extends BaseEntity {
   @Column({
-    nullable: false, 
-    type:'text'})
+    nullable: false,
+    type: 'text',
+  })
   @Expose()
   public name: string;
 
-
   @Column({
-    nullable: false, 
-    type:'float'})
+    nullable: false,
+    type: 'float',
+  })
   @Expose()
   @IsNumber()
   @Min(0)
   public price: null;
 
   @Column({
-    nullable: false, 
-    type:'float'})
+    nullable: false,
+    type: 'float',
+  })
   @Expose()
   @IsNumber()
   @Min(0)
   public amount: number;
 
-  @ManyToOne(()=>ProductTypeEntity, u=> u.nameType)
+  @ManyToOne(() => ProductTypeEntity, (u) => u.nameType)
   @Expose()
   public type: string;
 
   @Column({
-    nullable: false, 
-    type:'float'})
+    nullable: false,
+    type: 'float',
+  })
   @Expose()
   @IsNumber()
   @Min(0)
@@ -45,17 +54,17 @@ class ProductEntity extends BaseEntity {
 
   @Column({
     nullable: true,
-    type:'text'
+    type: 'text',
   })
   @Expose()
-  public color:string;
+  public color: string;
 
   @Column({
     nullable: true,
-    type:'text'
+    type: 'text',
   })
   @Expose()
-  public material:string;
+  public material: string;
 
   // @Column({
   //   nullable: true,
@@ -70,7 +79,7 @@ class ProductEntity extends BaseEntity {
 
   @Column({
     nullable: true,
-    type: 'text'
+    type: 'text',
   })
   @Expose()
   public description: string;
@@ -78,7 +87,6 @@ class ProductEntity extends BaseEntity {
   @Column('simple-array')
   @Expose()
   public productList: string[];
-
 }
 
 export default ProductEntity;
