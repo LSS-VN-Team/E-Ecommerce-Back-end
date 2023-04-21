@@ -31,6 +31,12 @@ async function bootstrap() {
   await app.listen(process.env.PORT || 3000);
 
   console.log('Starting on ', process.env.PORT);
+
+  const PORT = appConfig.server.PORT || 3000;
+  const HOST = appConfig.server.HOST || 'localhost';
+
+  console.log(`URL Swagger http://${HOST}:${PORT}/docs`);
+  console.log(`Starting on http://${HOST}:${PORT}`);
 }
 
 bootstrap();
