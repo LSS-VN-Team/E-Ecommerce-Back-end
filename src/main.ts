@@ -29,8 +29,12 @@ async function bootstrap() {
   SwaggerModule.setup('docs', app, document);
 
   await app.listen(process.env.PORT || 3000);
+  const PORT = appConfig.server.PORT || 3000;
+  const HOST = appConfig.server.HOST || 'localhost';
 
   console.log('Starting on ', process.env.PORT);
+  console.log(`URL Swagger http://${HOST}:${PORT}/docs`);
+  console.log(`Starting on http://${HOST}:${PORT}`);
 }
 
 bootstrap();
