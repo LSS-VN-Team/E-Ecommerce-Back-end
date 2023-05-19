@@ -5,12 +5,7 @@ export class UserDto {
   @ApiProperty()
   @IsOptional()
   @IsString()
-  fistName: string;
-
-  @ApiProperty()
-  @IsOptional()
-  @IsString()
-  lastName: string;
+  name: string;
 
   @ApiProperty({ required: true })
   @IsOptional()
@@ -25,10 +20,10 @@ export class UserDto {
   @ApiProperty()
   @IsOptional()
   @IsString()
-  cartList: [String];
+  cartList: [string];
 
   @ApiProperty()
   @IsOptional()
   @IsString()
-  oderList: [String];
+  oderList: [string];
 }

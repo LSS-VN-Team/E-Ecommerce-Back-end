@@ -56,9 +56,4 @@ export class UserService {
     const results = classToPlain(userUpdated, { ignoreDecorators: true });
     return results;
   }
-
-  private async getFilter(filter: UserFilter) {
-    const where: FindOptionsWhere<UserEntity>[] = [];
-    return where;
-  }
 }
