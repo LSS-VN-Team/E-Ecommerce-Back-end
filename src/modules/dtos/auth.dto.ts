@@ -5,7 +5,7 @@ export class AuthDto {
   @ApiProperty()
   @IsString()
   @IsNotEmpty({ message: 'You must enter the username' })
-  userName: string;
+  email: string;
 
   @ApiProperty()
   @IsString()

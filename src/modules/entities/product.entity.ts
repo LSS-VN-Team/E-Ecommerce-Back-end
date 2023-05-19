@@ -10,9 +10,13 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import ProductTypeEntity from './productType.entity';
+import { IntegerIdEntity } from 'libs/core/base/integer-id-entity.entity';
 
-@Entity()
-class ProductEntity extends BaseEntity {
+@Entity({
+  name: 'Product',
+  database: process.env.POSTGRES_DB,
+})
+class ProductEntity extends IntegerIdEntity {
   @Column({
     nullable: false,
     type: 'text',

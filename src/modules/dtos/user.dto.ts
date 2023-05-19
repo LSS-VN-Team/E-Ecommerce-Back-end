@@ -20,7 +20,7 @@ export class UserDto {
   @ApiProperty({ required: true })
   @IsOptional()
   @IsString()
-  passWord: string;
+  password: string;
 
   @ApiProperty()
   @IsOptional()

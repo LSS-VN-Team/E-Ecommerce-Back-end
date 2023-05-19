@@ -1,28 +1,25 @@
 import { Expose } from 'class-transformer';
 import { IsEmail } from 'class-validator';
 import { BaseEntity } from 'libs/core/base/base-entity.entity';
+import { IntegerIdEntity } from 'libs/core/base/integer-id-entity.entity';
 import { text } from 'stream/consumers';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
-class UserEntity extends BaseEntity {
+@Entity({
+  name: 'User',
+  database: process.env.POSTGRES_DB,
+})
+class UserEntity extends IntegerIdEntity {
   @Column({
-    nullable: false,
+    nullable: true,
     type: 'text',
   })
   @Expose()
-  public firstName: string;
-
-  @Column({
-    nullable: false,
-    type: 'text',
-  })
-  @Expose()
-  public lastName: string;
+  public name: string;
 
   @Column({
     unique: true,
-    nullable: false,
+    nullable: true,
     type: 'text',
   })
   @IsEmail()
@@ -30,7 +27,7 @@ class UserEntity extends BaseEntity {
   public email: string;
 
   @Column({
-    nullable: false,
+    nullable: true,
     type: 'text',
   })
   @Expose()
@@ -40,11 +37,11 @@ class UserEntity extends BaseEntity {
   @Expose()
   public admin: boolean;
 
-  @Column('simple-array')
+  @Column({ nullable: true, type: 'varchar' })
   @Expose()
   public cartList: string[];
 
-  @Column('simple-array')
+  @Column({ nullable: true, type: 'varchar' })
   @Expose()
   public orderList: string[];
 }

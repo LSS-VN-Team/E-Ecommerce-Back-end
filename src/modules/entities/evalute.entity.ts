@@ -1,9 +1,13 @@
 import { Exclude } from 'class-transformer';
 import { BaseEntity } from 'libs/core/base/base-entity.entity';
+import { IntegerIdEntity } from 'libs/core/base/integer-id-entity.entity';
 import { Column, Entity } from 'typeorm';
 
-@Entity()
-class EvaluteEntity extends BaseEntity {
+@Entity({
+  name: 'Evalute',
+  database: process.env.POSTGRES_DB,
+})
+class EvaluteEntity extends IntegerIdEntity {
   @Column({
     name: 'idUser',
     nullable: false,

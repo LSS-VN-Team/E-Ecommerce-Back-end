@@ -3,14 +3,17 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from '@hapi/joi';
 import { DatabaseModule } from './database.module';
-import { MainModule } from './modules/main.module';
+// import { MainModule } from './modules/main.module';
 import { CoreModule } from '@app/core';
+import { AuthModule } from './modules/auth/auth.module';
+import { UserModule } from './modules/User/user.module';
 // import { DatabaseModule } from '././database/database.module';
 console.log();
 
 @Module({
   imports: [
-    MainModule,
+    AuthModule,
+    // UserModule,
     CoreModule,
     ConfigModule.forRoot({
       validationSchema: Joi.object({

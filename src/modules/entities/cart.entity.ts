@@ -1,10 +1,14 @@
 // import { fail } from 'assert';
 import { Exclude, Expose } from 'class-transformer';
 import { BaseEntity } from 'libs/core/base/base-entity.entity';
+import { IntegerIdEntity } from 'libs/core/base/integer-id-entity.entity';
 import { Column, Entity } from 'typeorm';
 
-@Entity()
-class CartEntity extends BaseEntity {
+@Entity({
+  name: 'Cart',
+  database: process.env.POSTGRES_DB,
+})
+class CartEntity extends IntegerIdEntity {
   @Column({
     name: 'idUser',
     nullable: false,

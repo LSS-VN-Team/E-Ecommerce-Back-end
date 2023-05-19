@@ -5,9 +5,13 @@ import { text } from 'stream/consumers';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import StatisticsOfDayEntity from './statisticsOfDay.entity';
 import StatisticsForMonthEntity from './statisticsForMonth.entity';
+import { IntegerIdEntity } from 'libs/core/base/integer-id-entity.entity';
 
-@Entity()
-class StatisticsForYearEntity extends BaseEntity {
+@Entity({
+  name: 'StatisticsForYear',
+  database: process.env.POSTGRES_DB,
+})
+class StatisticsForYearEntity extends IntegerIdEntity {
   @Column({
     type: 'simple-array',
   })

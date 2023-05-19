@@ -4,23 +4,34 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   PrimaryColumn,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 export abstract class BaseEntity {
-  @PrimaryColumn('uuid')
+  @Column({
+    name: 'CreatedTime',
+    type: 'timestamptz',
+    default: () => 'NOW()',
+    nullable: true,
+  })
   @Expose()
-  id: string;
+  createdTime?: Date;
 
-  @CreateDateColumn()
+  @Column({
+    name: 'UpdatedTime',
+    type: 'timestamptz',
+    default: () => 'NOW()',
+    nullable: true,
+  })
   @Expose()
-  createdAt: Date;
+  updatedTime?: Date;
 
-  @UpdateDateColumn()
+  @DeleteDateColumn({
+    name: 'DeletedTime',
+    type: 'timestamptz',
+    nullable: true,
+  })
   @Expose()
-  updatedAt: Date;
-
-  @DeleteDateColumn()
-  @Expose()
-  deletedAt: Date;
+  deletedTime?: Date;
 }
